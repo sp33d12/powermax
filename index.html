@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>شركة الحرف الأول - Alharf Alawal Company</title>
+    <style>
+        /* Reset */
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            background: #f5f5f7;
+            color: #1c1c1e;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        /* Dark mode variables */
+        
+        body.dark {
+            background: #121217;
+            color: #e1e1e6;
+        }
+        
+        a {
+            color: #007aff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        body.dark a {
+            color: #3794ff;
+        }
+        
+        a:hover,
+        nav a:hover {
+            color: #5856d6;
+            background: #181716;
+            box-shadow: 0 10px 25px rgba(247, 23, 23, 0.6);
+            text-decoration: underline;
+        }
+        
+        body.dark a:hover,
+        body.dark nav a:hover {
+            color: #a8a8f0;
+        }
+        
+        header,
+        footer {
+            background: #ffffff;
+            padding: 25px 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            margin: 10px 20px;
+            user-select: none;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        body.dark header,
+        body.dark footer {
+            background: #1e1e27;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+        }
+        
+        header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0;
+            flex: 1 1 350px;
+            color: #1c1c1e;
+            transition: color 0.3s ease;
+        }
+        
+        body.dark header h1 {
+            color: #e1e1e6;
+        }
+        
+        header img {
+            max-height: 90px;
+            border-radius: 18px;
+            box-shadow: 0 6px 15px rgba(0, 122, 255, 0.3);
+            flex-shrink: 0;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        body.dark header img {
+            box-shadow: 0 6px 15px rgba(55, 148, 255, 0.7);
+        }
+        
+        nav {
+            flex: 1 1 100%;
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        nav a {
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 0 16px;
+            padding: 8px 14px;
+            border-radius: 12px;
+            background: transparent;
+            display: inline-block;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        nav a:hover {
+            background: #ffffff;
+            color: #006eff;
+        }
+        
+        body.dark nav a:hover {
+            background: #ffffff;
+            color: #006eff;
+        }
+        
+        main {
+            max-width: 980px;
+            margin: 40px auto 60px;
+            padding: 0 20px;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 70px 20px 80px;
+            background: #fff;
+            border-radius: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            color: #1c1c1e;
+            user-select: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        body.dark .hero {
+            background: #1e1e27;
+            color: #e1e1e6;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 35px;
+            color: #444444;
+            transition: color 0.3s ease;
+        }
+        
+        body.dark .hero p {
+            color: #bbb;
+        }
+        
+        .button {
+            padding: 15px 35px;
+            background: #007aff;
+            border: none;
+            border-radius: 30px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(0, 122, 255, 0.4);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            user-select: none;
+        }
+        
+        .button:hover {
+            background: #006eff;
+            box-shadow: 0 10px 25px rgba(255, 0, 0, 0.6);
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+            margin: 50px 0;
+            user-select: none;
+        }
+        
+        .product {
+            background: #fff;
+            border-radius: 25px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease;
+            cursor: default;
+        }
+        
+        body.dark .product {
+            background: #1e1e27;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.9);
+        }
+        
+        .product:hover {
+            box-shadow: 0 12px 30px rgba(255, 0, 0, 0.12);
+            transform: translateY(-5px);
+        }
+        
+        body.dark .product:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 1);
+        }
+        
+        .product img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            margin-bottom: 18px;
+        }
+        
+        .product h3 {
+            font-weight: 700;
+            color: #007aff;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+        
+        body.dark .product h3 {
+            color: #3794ff;
+        }
+        
+        .product p {
+            color: #555555;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        body.dark .product p {
+            color: #bbb;
+        }
+        
+        section {
+            padding: 40px 0;
+            text-align: center;
+            user-select: text;
+        }
+        
+        #about h2,
+        #contact h2 {
+            color: #007aff;
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+        
+        body.dark #about h2,
+        body.dark #contact h2 {
+            color: #3794ff;
+        }
+        
+        #about p,
+        #contact p {
+            font-size: 1.1rem;
+            color: #555555;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+        
+        body.dark #about p,
+        body.dark #contact p {
+            color: #bbb;
+        }
+        
+        footer {
+            font-size: 0.9rem;
+            color: #888888;
+            text-align: center;
+            padding: 20px 40px;
+            background: #ffffff;
+            border-top: 1px solid #e0e0e0;
+            user-select: none;
+            border-radius: 0 0 12px 12px;
+            margin: 0 20px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        body.dark footer {
+            background: #1e1e27;
+            color: #999999;
+            border-top: 1px solid #33334d;
+        }
+        
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            header h1 {
+                flex: unset;
+                font-size: 1.4rem;
+                margin-bottom: 10px;
+            }
+            nav {
+                margin-top: 10px;
+            }
+        }
+        /* Language toggle */
+        
+        #langToggle,
+        #darkToggle {
+            position: fixed;
+            top: 20px;
+            background: #007aff;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 6px 15px rgba(0, 122, 255, 0.4);
+            transition: background-color 0.3s ease;
+            user-select: none;
+            z-index: 9999;
+        }
+        
+        #langToggle:hover,
+        #darkToggle:hover {
+            background: #181716;
+            box-shadow: 0 10px 25px rgba(247, 23, 23, 0.6);
+        }
+        
+        #langToggle {
+            left: 20px;
+        }
+        
+        #darkToggle {
+            left: 130px;
+        }
+    </style>
+</head>
+
+<body dir="rtl" lang="ar">
+
+    <button id="langToggle" aria-label="Toggle Language">English</button>
+    <button id="darkToggle" aria-label="Toggle Dark Mode">Dark Mode</button>
+
+    <header>
+
+        <img src="https://scontent.fnjf7-2.fna.fbcdn.net/v/t39.30808-6/311970514_5469892113093908_7567830053241112751_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeE9IVrMzLqJyYrKRTSUOxOPVmQclwQaxvZWZByXBBrG9snwLITckxmasboAa4-YWcbVoWxR0MwnVKfvWrCt-1Sa&_nc_ohc=FjHjV7wnBJkQ7kNvwFkQ52D&_nc_oc=Adk2V3d4BXBegLqP6ucOZn7_f_kGjm8bVEu9VwXNndolzqcLOraoP6Pd4nBXgsYkenI&_nc_zt=23&_nc_ht=scontent.fnjf7-2.fna&_nc_gid=KhpagOvAnOLR2UwyocwZNg&oh=00_AfUAVioFXtxgD6Rnh8iuChIsA7759HLMffB_v77Shxzdgw&oe=689846E4"
+            alt="Powermax Logo" />
+        <h1 data-en="Alharf Alawal Company - Powermax - Computer Supplies Trade" data-ar="شركة الحرف الأول - العلامة باورماكس - لتجارة مواد الحاسبات">
+            شركة الحرف الأول - العلامة باورماكس - لتجارة مواد الحاسبات
+        </h1>
+        <nav>
+            <a href="#products" data-en="Products" data-ar="المنتجات">المنتجات</a>
+            <a href="#about" data-en="About Us" data-ar="عن الشركة">عن الشركة</a>
+            <a href="#contact" data-en="Contact Us" data-ar="تواصل معنا">تواصل معنا</a>
+            <a href="https://sp33d12.github.io/profoliw/" target="_blank" rel="noopener noreferrer" data-en="About Developer" data-ar="عن المطور">عن المطور</a>
+        </nav>
+
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2 data-en="Reliable Tech Solutions for Home and Work" data-ar="حلول تقنية موثوقة للمنزل والعمل">
+                حلول تقنية موثوقة للمنزل والعمل
+            </h2>
+            <p data-en="We provide the best computer accessories such as printers, mice, keyboards, UPS, and more, with online and offline service." data-ar="نُقدّم أفضل مستلزمات الحاسوب من طابعات وفارات ولوحات مفاتيح و UPS وغيرها، بخدمة أونلاين وأوفلاين.">
+                نُقدّم أفضل مستلزمات الحاسوب من طابعات وفارات ولوحات مفاتيح و UPS وغيرها، بخدمة أونلاين وأوفلاين.
+            </p>
+            <button class="button" data-en="Browse Products" data-ar="تصفح المنتجات">تصفح المنتجات</button>
+        </section>
+
+        <section id="products" class="products">
+            <div class="product">
+                <img src="https://pngimg.com/d/printer_PNG101580.png" alt="Printer" />
+                <h3 data-en="Printers" data-ar="الطابعات">الطابعات</h3>
+                <p data-en="High-quality printing for offices and homes" data-ar="طباعة عالية الجودة للمكاتب والمنازل">
+                    طباعة عالية الجودة للمكاتب والمنازل
+                </p>
+            </div>
+            <div class="product">
+                <img src="https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c08319793.png" alt="Keyboard" />
+                <h3 data-en="Keyboards" data-ar="لوحات المفاتيح">لوحات المفاتيح</h3>
+                <p data-en="Comfortable mechanical keyboards" data-ar="لوحات مريحة وميكانيكية">
+                    لوحات مريحة وميكانيكية
+                </p>
+            </div>
+            <div class="product">
+                <img src="https://resource.logitechg.com/w_386,ar_1.0,c_limit,f_auto,q_auto,dpr_2.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-superlight-2-dex/gallery/new-gallery-assets-2025/pro-x-superlight-2-dex-mouse-top-angle-black-gallery-1.png?v=1"
+                    alt="Mouse" />
+                <h3 data-en="Mice" data-ar="الفارات">الفارات</h3>
+                <p data-en="Wired and wireless options" data-ar="خيارات سلكية ولاسلكية">
+                    خيارات سلكية ولاسلكية
+                </p>
+            </div>
+            <div class="product">
+                <img src="https://www.fingers.co.in/secure/api/uploads/products/1686123515_3.png" alt="Router UPS" />
+                <h3 data-en="Router UPS" data-ar="UPS للراوتر">UPS للراوتر</h3>
+                <p data-en="Keep your work running with reliable backup power" data-ar="حافظ على عملك مع طاقة احتياطية موثوقة">
+                    حافظ على عملك مع طاقة احتياطية موثوقة
+                </p>
+            </div>
+            <div class="product">
+                <img src="https://www.howzitsa.com/wp-content/uploads/2022/07/linkqnet-mini-dc-ups-8800-mah-1.webp" alt="PC UPS" />
+                <h3 data-en="PC UPS" data-ar="UPS للكمبيوتر">UPS للكمبيوتر</h3>
+                <p data-en="Stay connected during power outages" data-ar="ابقَ متصلاً خلال انقطاع الكهرباء">
+                    ابقَ متصلاً خلال انقطاع الكهرباء
+                </p>
+            </div>
+            <div class="product">
+                <img src="https://dubaria.shop/cdn/shop/products/842873c5fb477ee9f54ce2a9557fb585_f9735f25-8ca3-43cf-8f46-139360d356f7.jpg?v=1619100246" alt="Inks and Toners" />
+                <h3 data-en="Inks & Toners" data-ar="الأحبار والتونر">الأحبار والتونر</h3>
+                <p data-en="Original inks at reasonable prices" data-ar="أحبار أصلية وبأسعار مناسبة">
+                    أحبار أصلية وبأسعار مناسبة
+                </p>
+            </div>
+            <div class="product">
+                <img src="https://s3-ap-southeast-2.amazonaws.com/transforms.imagescience.com.au/_202306_imager-transforms/s3images/Products/Epson-Scanners/26727/Epson-Perfection-V600-Photo-Scanner1_8a39ff8a6b9c4355b296f93fc26068cc.jpg" alt="Scanner" />
+                <h3 data-en="Scanners" data-ar="الماسحات الضوئية">الماسحات الضوئية</h3>
+                <p data-en="Fast and efficient document digitization" data-ar="رقمنة الوثائق بسرعة وكفاءة">
+                    رقمنة الوثائق بسرعة وكفاءة
+                </p>
+            </div>
+            <div class="product">
+                <img src="https://technoholicnepal.com/wp-content/uploads/2024/07/deli-paper-shredder-5-sheets-12-litr-e9939.webp" alt="Paper Shredder" />
+                <h3 data-en="Paper Shredders" data-ar="أدوات قص الورق">أدوات قص الورق</h3>
+                <p data-en="Precise and durable paper cutting" data-ar="قص دقيق ومتين للأوراق">
+                    قص دقيق ومتين للأوراق
+                </p>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 data-en="About Alharf Alawal Company" data-ar="عن شركة الحرف الأول">عن شركة الحرف الأول</h2>
+            <p data-en="A leading Iraqi company specializing in computer supplies (Powermax), offering online and offline services to meet companies' and individuals' needs with quality assurance and technical support." data-ar="شركة عراقية رائدة في مجال تجارة مستلزمات الحاسوب (باورماكس)، نقدم خدماتنا أونلاين وأوفلاين لتلبية احتياجات الشركات والأفراد مع ضمان الجودة والدعم الفني.">
+                شركة عراقية رائدة في مجال تجارة مستلزمات الحاسوب (باورماكس)، نقدم خدماتنا أونلاين وأوفلاين لتلبية احتياجات الشركات والأفراد مع ضمان الجودة والدعم الفني.
+            </p>
+        </section>
+
+        <section id="contact">
+            <h2 data-en="Contact Us" data-ar="تواصل معنا">تواصل معنا</h2>
+            <p data-en="Email: sales@alharfalawal.com | Phone: +964 770 000 0000" data-ar="البريد الإلكتروني: sales@alharfalawal.com | الهاتف: +964 770 000 0000">
+                البريد الإلكتروني: sales@alharfalawal.com | الهاتف: +964 770 000 0000
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        &copy; <span id="year"></span> Alharf Alawal Company - Powermax. All rights reserved. | شركة الحرف الأول - باورماكس. جميع الحقوق محفوظة.
+    </footer>
+
+    <script>
+        // Language toggle functionality
+        const langToggle = document.getElementById('langToggle');
+        const darkToggle = document.getElementById('darkToggle');
+        const htmlTag = document.documentElement;
+        const body = document.body;
+        let currentLang = 'ar'; // Default Arabic
+        let darkMode = false;
+
+        langToggle.addEventListener('click', () => {
+            if (currentLang === 'ar') {
+                switchLanguage('en');
+            } else {
+                switchLanguage('ar');
+            }
+        });
+
+        darkToggle.addEventListener('click', () => {
+            darkMode = !darkMode;
+            if (darkMode) {
+                body.classList.add('dark');
+                darkToggle.textContent = currentLang === 'ar' ? 'وضع النهار' : 'Light Mode';
+            } else {
+                body.classList.remove('dark');
+                darkToggle.textContent = currentLang === 'ar' ? 'الوضع الداكن' : 'Dark Mode';
+            }
+        });
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            if (lang === 'en') {
+                htmlTag.lang = 'en';
+                htmlTag.dir = 'ltr';
+                langToggle.textContent = 'العربية';
+                // Change text for all elements with data-en and data-ar
+                document.querySelectorAll('[data-en]').forEach(el => {
+                    el.textContent = el.getAttribute('data-en');
+                });
+                // Align text left
+                body.style.textAlign = 'left';
+                body.dir = 'ltr';
+
+                // Update dark toggle text based on mode
+                darkToggle.textContent = darkMode ? 'Light Mode' : 'Dark Mode';
+            } else {
+                htmlTag.lang = 'ar';
+                htmlTag.dir = 'rtl';
+                langToggle.textContent = 'English';
+                document.querySelectorAll('[data-ar]').forEach(el => {
+                    el.textContent = el.getAttribute('data-ar');
+                });
+                // Align text right
+                body.style.textAlign = 'right';
+                body.dir = 'rtl';
+
+                // Update dark toggle text based on mode
+                darkToggle.textContent = darkMode ? 'وضع النهار' : 'الوضع الداكن';
+            }
+        }
+
+        // Set initial year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>
